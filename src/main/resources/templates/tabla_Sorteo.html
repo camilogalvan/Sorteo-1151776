@@ -1,0 +1,40 @@
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<link rel="stylesheet" type="text/css" href="css/styleT.css">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	crossorigin="anonymous">
+</head>
+
+<body>
+
+	<div class="container">
+		<table class="table table-fixed" id="customers">
+			<thead>
+				<tr>
+					<th class="col-xs-3">Sorteo</th>
+					<th class="col-xs-2">Fecha</th>
+					<th class="col-xs-2">Boletas</th>
+					<th class="col-xs-2">Números</th>
+					<th class="col-xs-3">Acciones</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="sorteo : ${list}">
+					<td th:text="${sorteo.nombre}" /></td>
+					<td th:text="${sorteo.fecha}" /></td>
+					<td th:text="${sorteo.boletas}"></td>
+					<td th:text="${sorteo.numeros}"></td>
+					<td><a href="@{/registroPersona}">Registrar</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="">Sortear</a>
+					</td>
+				</tr>
+			</tbody>
+
+
+		</table>
+	</div>
+
+</body>
+</html>

@@ -7,25 +7,25 @@ import javax.persistence.*;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import java.util.HashSet;
 import java.util.List;
-
+import java.util.Set;
 
 /**
  * The persistent class for the sorteo database table.
  * 
  */
 @Entity
-@NamedQuery(name="Sorteo.findAll", query="SELECT s FROM Sorteo s")
+@NamedQuery(name = "Sorteo.findAll", query = "SELECT s FROM Sorteo s")
 public class Sorteo implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
 	private int boletas;
 
-	
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate fecha;
 
@@ -35,24 +35,33 @@ public class Sorteo implements Serializable {
 
 	private int numeros;
 
-	//bi-directional many-to-one association to Boleta
-	@OneToMany(mappedBy="sorteoBean")
+	// bi-directional many-to-one association to Boleta
+	@OneToMany(mappedBy = "sorteoBean")
 	private List<Boleta> boletasSet;
 
-	//bi-directional many-to-one association to Persona
-	@OneToMany(mappedBy="sorteoBean")
+	// bi-directional many-to-one association to Persona
+	@OneToMany(mappedBy = "sorteoBean")
 	private List<Persona> personas;
 
 	public Sorteo() {
 	}
-	
+/*
 	public void generarBoletas() {
-		 Boleta boletta= new Boleta();
-		for(int i = 0; i<boletas;i++) {
+		Boleta boletta = new Boleta();
+		for (int i = 0; i < boletas; i++) {
 			boletta.setBoleta(i);
-				this.addBoletasSet(boletta);						
-		}				
+			this.addBoletasSet(boletta);
+			for (int j = 0; j < numeros; j++) {
+				List<Numero> numbers;
+				Numero
+				numbers.add(n);
+				boletta.setBoleta(i);
+				this.addBoletasSet(boletta)
+		}
+		
+		}
 	}
+	*/
 
 	public int getId() {
 		return this.id;

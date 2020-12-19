@@ -10,6 +10,7 @@ import org.springframework.format.annotation.DateTimeFormat;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.concurrent.ThreadLocalRandom;
 
 /**
  * The persistent class for the sorteo database table.
@@ -45,23 +46,28 @@ public class Sorteo implements Serializable {
 
 	public Sorteo() {
 	}
-/*
+
 	public void generarBoletas() {
 		Boleta boletta = new Boleta();
 		for (int i = 0; i < boletas; i++) {
 			boletta.setBoleta(i);
 			this.addBoletasSet(boletta);
 			for (int j = 0; j < numeros; j++) {
-				List<Numero> numbers;
-				Numero
-				numbers.add(n);
+				List<Numero> numbers;				
 				boletta.setBoleta(i);
-				this.addBoletasSet(boletta)
+				this.addBoletasSet(boletta);
 		}
 		
 		}
 	}
-	*/
+	
+	
+	
+	public int esocogerGanador() {
+		int randomNum = ThreadLocalRandom.current().nextInt(0, numeros*boletas + 1);
+	    return randomNum;
+	}
+	
 
 	public int getId() {
 		return this.id;

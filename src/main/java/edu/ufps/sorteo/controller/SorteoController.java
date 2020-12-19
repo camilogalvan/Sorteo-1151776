@@ -43,6 +43,14 @@ public class SorteoController {
 		return "redirect:/index";
 	}
 	
+	@GetMapping("/inicioSorteo")
+	public String iniciarSorteo(HttpServletRequest request, Model model) {
+		
+		model.addAttribute("list", this.sorteoRepository.findAll());
+		
+		return "tabla_Sorteo";
+	}
+	
 
 
 }
